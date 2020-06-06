@@ -44,12 +44,17 @@ const AuthProvider = ({ children }) => {
     return isAuthValid;
   };
 
+  const isAdmin = () => {
+    return authState.userInfo.role === "admin";
+  };
+
   return (
     <Provider
       value={{
         authState,
         setAuthState: (authInfo) => setAuthInfo(authInfo),
         isAuthenticated,
+        isAdmin,
         logout,
       }}
     >
